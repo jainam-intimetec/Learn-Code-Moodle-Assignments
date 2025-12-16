@@ -1,4 +1,4 @@
-"# Learn-Code-Moodle-Assignment - Week 1"
+# Learn-Code-Moodle-Assignment - Week 1
 
 🔹 Assignment 1
 Assignment 1: The below program is to Roll the Dice
