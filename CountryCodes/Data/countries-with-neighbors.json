@@ -1,0 +1,412 @@
+[
+  {
+    "countryName": "Afghanistan",
+    "countryCode": "AF",
+    "adjacentCountries": [ "Pakistan", "Iran", "Turkmenistan", "Uzbekistan", "Tajikistan", "China" ]
+  },
+  {
+    "countryName": "Albania",
+    "countryCode": "AL",
+    "adjacentCountries": [ "Greece", "North Macedonia", "Kosovo", "Montenegro" ]
+  },
+  {
+    "countryName": "Algeria",
+    "countryCode": "DZ",
+    "adjacentCountries": [ "Tunisia", "Libya", "Niger", "Mali", "Mauritania", "Western Sahara", "Morocco" ]
+  },
+  {
+    "countryName": "Andorra",
+    "countryCode": "AD",
+    "adjacentCountries": [ "France", "Spain" ]
+  },
+  {
+    "countryName": "Angola",
+    "countryCode": "AO",
+    "adjacentCountries": [ "Namibia", "Zambia", "Democratic Republic of the Congo", "Republic of the Congo" ]
+  },
+  {
+    "countryName": "Argentina",
+    "countryCode": "AR",
+    "adjacentCountries": [ "Chile", "Bolivia", "Paraguay", "Brazil", "Uruguay" ]
+  },
+  {
+    "countryName": "Armenia",
+    "countryCode": "AM",
+    "adjacentCountries": [ "Turkey", "Georgia", "Azerbaijan", "Iran" ]
+  },
+  {
+    "countryName": "Australia",
+    "countryCode": "AU",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Austria",
+    "countryCode": "AT",
+    "adjacentCountries": [ "Germany", "Czech Republic", "Slovakia", "Hungary", "Slovenia", "Italy", "Switzerland", "Liechtenstein" ]
+  },
+  {
+    "countryName": "Azerbaijan",
+    "countryCode": "AZ",
+    "adjacentCountries": [ "Russia", "Georgia", "Armenia", "Iran", "Turkey" ]
+  },
+  {
+    "countryName": "Bahamas",
+    "countryCode": "BS",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Bahrain",
+    "countryCode": "BH",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Bangladesh",
+    "countryCode": "BD",
+    "adjacentCountries": [ "India", "Myanmar" ]
+  },
+  {
+    "countryName": "Belgium",
+    "countryCode": "BE",
+    "adjacentCountries": [ "France", "Germany", "Luxembourg", "Netherlands" ]
+  },
+  {
+    "countryName": "Belize",
+    "countryCode": "BZ",
+    "adjacentCountries": [ "Mexico", "Guatemala" ]
+  },
+  {
+    "countryName": "Benin",
+    "countryCode": "BJ",
+    "adjacentCountries": [ "Togo", "Burkina Faso", "Niger", "Nigeria" ]
+  },
+  {
+    "countryName": "Bhutan",
+    "countryCode": "BT",
+    "adjacentCountries": [ "China", "India" ]
+  },
+  {
+    "countryName": "Bolivia",
+    "countryCode": "BO",
+    "adjacentCountries": [ "Peru", "Brazil", "Paraguay", "Argentina", "Chile" ]
+  },
+  {
+    "countryName": "Botswana",
+    "countryCode": "BW",
+    "adjacentCountries": [ "Namibia", "Zimbabwe", "South Africa", "Zambia" ]
+  },
+  {
+    "countryName": "Brazil",
+    "countryCode": "BR",
+    "adjacentCountries": [ "French Guiana", "Suriname", "Guyana", "Venezuela", "Colombia", "Peru", "Bolivia", "Paraguay", "Argentina", "Uruguay" ]
+  },
+  {
+    "countryName": "Bulgaria",
+    "countryCode": "BG",
+    "adjacentCountries": [ "Romania", "Serbia", "North Macedonia", "Greece", "Turkey" ]
+  },
+  {
+    "countryName": "Cambodia",
+    "countryCode": "KH",
+    "adjacentCountries": [ "Thailand", "Laos", "Vietnam" ]
+  },
+  {
+    "countryName": "Cameroon",
+    "countryCode": "CM",
+    "adjacentCountries": [ "Nigeria", "Chad", "Central African Republic", "Republic of the Congo", "Gabon", "Equatorial Guinea" ]
+  },
+  {
+    "countryName": "Canada",
+    "countryCode": "CA",
+    "adjacentCountries": [ "United States of America" ]
+  },
+  {
+    "countryName": "Chile",
+    "countryCode": "CL",
+    "adjacentCountries": [ "Peru", "Bolivia", "Argentina" ]
+  },
+  {
+    "countryName": "China",
+    "countryCode": "CN",
+    "adjacentCountries": [ "North Korea", "Russia", "Mongolia", "Kazakhstan", "Kyrgyzstan", "Tajikistan", "Afghanistan", "Pakistan", "India", "Nepal", "Bhutan", "Myanmar", "Laos", "Vietnam" ]
+  },
+  {
+    "countryName": "Colombia",
+    "countryCode": "CO",
+    "adjacentCountries": [ "Panama", "Venezuela", "Brazil", "Peru", "Ecuador" ]
+  },
+  {
+    "countryName": "Costa Rica",
+    "countryCode": "CR",
+    "adjacentCountries": [ "Nicaragua", "Panama" ]
+  },
+  {
+    "countryName": "Croatia",
+    "countryCode": "HR",
+    "adjacentCountries": [ "Slovenia", "Hungary", "Serbia", "Bosnia and Herzegovina", "Montenegro" ]
+  },
+  {
+    "countryName": "Cuba",
+    "countryCode": "CU",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Cyprus",
+    "countryCode": "CY",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Czech Republic",
+    "countryCode": "CZ",
+    "adjacentCountries": [ "Germany", "Poland", "Slovakia", "Austria" ]
+  },
+  {
+    "countryName": "Denmark",
+    "countryCode": "DK",
+    "adjacentCountries": [ "Germany" ]
+  },
+  {
+    "countryName": "Dominican Republic",
+    "countryCode": "DO",
+    "adjacentCountries": [ "Haiti" ]
+  },
+  {
+    "countryName": "Ecuador",
+    "countryCode": "EC",
+    "adjacentCountries": [ "Colombia", "Peru" ]
+  },
+  {
+    "countryName": "Egypt",
+    "countryCode": "EG",
+    "adjacentCountries": [ "Libya", "Sudan", "Israel", "Palestine" ]
+  },
+  {
+    "countryName": "Estonia",
+    "countryCode": "EE",
+    "adjacentCountries": [ "Russia", "Latvia" ]
+  },
+  {
+    "countryName": "Ethiopia",
+    "countryCode": "ET",
+    "adjacentCountries": [ "Eritrea", "Djibouti", "Somalia", "Kenya", "South Sudan", "Sudan" ]
+  },
+  {
+    "countryName": "Finland",
+    "countryCode": "FI",
+    "adjacentCountries": [ "Norway", "Sweden", "Russia" ]
+  },
+  {
+    "countryName": "France",
+    "countryCode": "FR",
+    "adjacentCountries": [ "Belgium", "Luxembourg", "Germany", "Switzerland", "Italy", "Monaco", "Spain", "Andorra" ]
+  },
+  {
+    "countryName": "Germany",
+    "countryCode": "DE",
+    "adjacentCountries": [ "Denmark", "Poland", "Czech Republic", "Austria", "Switzerland", "France", "Luxembourg", "Belgium", "Netherlands" ]
+  },
+  {
+    "countryName": "Greece",
+    "countryCode": "GR",
+    "adjacentCountries": [ "Albania", "North Macedonia", "Bulgaria", "Turkey" ]
+  },
+  {
+    "countryName": "Hungary",
+    "countryCode": "HU",
+    "adjacentCountries": [ "Slovakia", "Ukraine", "Romania", "Serbia", "Croatia", "Slovenia", "Austria" ]
+  },
+  {
+    "countryName": "Iceland",
+    "countryCode": "IS",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "India",
+    "countryCode": "IN",
+    "adjacentCountries": [ "Pakistan", "China", "Nepal", "Bhutan", "Bangladesh", "Myanmar" ]
+  },
+  {
+    "countryName": "Indonesia",
+    "countryCode": "ID",
+    "adjacentCountries": [ "Papua New Guinea", "East Timor", "Malaysia" ]
+  },
+  {
+    "countryName": "Iran",
+    "countryCode": "IR",
+    "adjacentCountries": [ "Turkey", "Iraq", "Kuwait", "Saudi Arabia", "Qatar", "United Arab Emirates", "Oman", "Pakistan", "Afghanistan", "Turkmenistan", "Azerbaijan", "Armenia" ]
+  },
+  {
+    "countryName": "Iraq",
+    "countryCode": "IQ",
+    "adjacentCountries": [ "Turkey", "Syria", "Jordan", "Saudi Arabia", "Kuwait", "Iran" ]
+  },
+  {
+    "countryName": "Ireland",
+    "countryCode": "IE",
+    "adjacentCountries": [ "United Kingdom" ]
+  },
+  {
+    "countryName": "Israel",
+    "countryCode": "IL",
+    "adjacentCountries": [ "Lebanon", "Syria", "Jordan", "Egypt", "Palestine" ]
+  },
+  {
+    "countryName": "Italy",
+    "countryCode": "IT",
+    "adjacentCountries": [ "France", "Switzerland", "Austria", "Slovenia", "San Marino", "Vatican City" ]
+  },
+  {
+    "countryName": "Japan",
+    "countryCode": "JP",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Kenya",
+    "countryCode": "KE",
+    "adjacentCountries": [ "Somalia", "Ethiopia", "South Sudan", "Uganda", "Tanzania" ]
+  },
+  {
+    "countryName": "Malaysia",
+    "countryCode": "MY",
+    "adjacentCountries": [ "Thailand", "Indonesia", "Brunei" ]
+  },
+  {
+    "countryName": "Mexico",
+    "countryCode": "MX",
+    "adjacentCountries": [ "United States of America", "Guatemala", "Belize" ]
+  },
+  {
+    "countryName": "Netherlands",
+    "countryCode": "NL",
+    "adjacentCountries": [ "Belgium", "Germany" ]
+  },
+  {
+    "countryName": "New Zealand",
+    "countryCode": "NZ",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Nigeria",
+    "countryCode": "NG",
+    "adjacentCountries": [ "Benin", "Niger", "Chad", "Cameroon" ]
+  },
+  {
+    "countryName": "Norway",
+    "countryCode": "NO",
+    "adjacentCountries": [ "Sweden", "Finland", "Russia" ]
+  },
+  {
+    "countryName": "Pakistan",
+    "countryCode": "PK",
+    "adjacentCountries": [ "Iran", "Afghanistan", "China", "India" ]
+  },
+  {
+    "countryName": "Peru",
+    "countryCode": "PE",
+    "adjacentCountries": [ "Ecuador", "Colombia", "Brazil", "Bolivia", "Chile" ]
+  },
+  {
+    "countryName": "Philippines",
+    "countryCode": "PH",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Poland",
+    "countryCode": "PL",
+    "adjacentCountries": [ "Germany", "Czech Republic", "Slovakia", "Ukraine", "Belarus", "Lithuania", "Russia" ]
+  },
+  {
+    "countryName": "Portugal",
+    "countryCode": "PT",
+    "adjacentCountries": [ "Spain" ]
+  },
+  {
+    "countryName": "Qatar",
+    "countryCode": "QA",
+    "adjacentCountries": [ "Saudi Arabia" ]
+  },
+  {
+    "countryName": "Romania",
+    "countryCode": "RO",
+    "adjacentCountries": [ "Ukraine", "Moldova", "Bulgaria", "Serbia", "Hungary" ]
+  },
+  {
+    "countryName": "Russia",
+    "countryCode": "RU",
+    "adjacentCountries": [ "Norway", "Finland", "Estonia", "Latvia", "Lithuania", "Poland", "Belarus", "Ukraine", "Georgia", "Azerbaijan", "Kazakhstan", "Mongolia", "China", "North Korea" ]
+  },
+  {
+    "countryName": "Saudi Arabia",
+    "countryCode": "SA",
+    "adjacentCountries": [ "Jordan", "Iraq", "Kuwait", "Qatar", "United Arab Emirates", "Oman", "Yemen" ]
+  },
+  {
+    "countryName": "Singapore",
+    "countryCode": "SG",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "South Africa",
+    "countryCode": "ZA",
+    "adjacentCountries": [ "Namibia", "Botswana", "Zimbabwe", "Mozambique", "Eswatini", "Lesotho" ]
+  },
+  {
+    "countryName": "South Korea",
+    "countryCode": "KR",
+    "adjacentCountries": [ "North Korea" ]
+  },
+  {
+    "countryName": "Spain",
+    "countryCode": "ES",
+    "adjacentCountries": [ "Portugal", "France", "Andorra", "Gibraltar", "Morocco" ]
+  },
+  {
+    "countryName": "Sri Lanka",
+    "countryCode": "LK",
+    "adjacentCountries": []
+  },
+  {
+    "countryName": "Sweden",
+    "countryCode": "SE",
+    "adjacentCountries": [ "Norway", "Finland" ]
+  },
+  {
+    "countryName": "Switzerland",
+    "countryCode": "CH",
+    "adjacentCountries": [ "France", "Germany", "Austria", "Liechtenstein", "Italy" ]
+  },
+  {
+    "countryName": "Thailand",
+    "countryCode": "TH",
+    "adjacentCountries": [ "Myanmar", "Laos", "Cambodia", "Malaysia" ]
+  },
+  {
+    "countryName": "Turkey",
+    "countryCode": "TR",
+    "adjacentCountries": [ "Greece", "Bulgaria", "Georgia", "Armenia", "Azerbaijan", "Iran", "Iraq", "Syria" ]
+  },
+  {
+    "countryName": "Ukraine",
+    "countryCode": "UA",
+    "adjacentCountries": [ "Belarus", "Russia", "Poland", "Slovakia", "Hungary", "Romania", "Moldova" ]
+  },
+  {
+    "countryName": "United Arab Emirates",
+    "countryCode": "AE",
+    "adjacentCountries": [ "Saudi Arabia", "Oman" ]
+  },
+  {
+    "countryName": "United Kingdom",
+    "countryCode": "GB",
+    "adjacentCountries": [ "Ireland" ]
+  },
+  {
+    "countryName": "United States of America",
+    "countryCode": "US",
+    "adjacentCountries": [ "Canada", "Mexico" ]
+  },
+  {
+    "countryName": "Vietnam",
+    "countryCode": "VN",
+    "adjacentCountries": [ "China", "Laos", "Cambodia" ]
+  }
+]
