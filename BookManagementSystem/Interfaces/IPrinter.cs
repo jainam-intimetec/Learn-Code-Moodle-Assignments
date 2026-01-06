@@ -1,6 +1,6 @@
   using BookSystem.Entities;
 
-namespace LibrarySystem.Interfaces
+namespace BookSystem.Interfaces
 {
   public interface IPrinter
     {

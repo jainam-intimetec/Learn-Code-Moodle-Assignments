@@ -5,6 +5,6 @@ namespace CustomerSystem.Interfaces
 {
     public interface ICustomerExporter
     {
-        string Export(List<Customer> data);
+        string Export(List<Customer> customerData);
     }
 }

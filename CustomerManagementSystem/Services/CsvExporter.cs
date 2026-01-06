@@ -4,15 +4,15 @@ using CustomerSystem.Entities;
 
 namespace CustomerSystem.Services
 {
-    public class CsvExporter
+    public class CsvExporter:ICustomerExporter
     {
-        public string ExportToCsv(List<Customer> customers)
+        public string Export(List<Customer> customerData)
         {
           StringBuilder sb = new StringBuilder();
 
-           foreach(var item in customers)
+           foreach(var customer in customerData)
             {
-                sb.AppendFormat("{0},{1}, {2}, {3}", item.CustomerID, item.CompanyName, item.ContactName, item.Country);
+                sb.AppendFormat("{0},{1}, {2}, {3}", customer.CustomerID, customer.CompanyName, customer.ContactName, customer.Country);
                 sb.AppendLine();
             }
 
