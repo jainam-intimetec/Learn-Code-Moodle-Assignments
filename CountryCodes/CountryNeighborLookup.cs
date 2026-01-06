@@ -6,13 +6,14 @@ using Newtonsoft.Json;
 
 public class CountryNeighborLookup
 {
-    private const string CountriesFilePath = "Data/countries-with-neighbors.json";
+    private static readonly string CountriesFilePath = Path.Combine(AppContext.BaseDirectory, "Data", "countries-with-neighbors.json");
 
     public static void Run()
     {
         string countryCode = ReadCountryCodeFromUser();
         List<Country> countries = LoadCountries();
         Country selectedCountry = FindCountryByCode(countries, countryCode);
+        CheckIsCountryNull(selectedCountry);
         DisplayAdjacentCountries(selectedCountry);
     }
 
@@ -38,13 +39,13 @@ public class CountryNeighborLookup
         Country country = countries.FirstOrDefault(
             c => c.CountryCode.Equals(countryCode));
 
-        if (country == null)
-        {
-            Console.WriteLine("Country code not found.");
-            return null;
-        }
-
         return country;
+    }
+
+    private static void CheckIsCountryNull(Country country)
+    {
+        if (country == null)
+            throw new InvalidDataException("Country Code not found.");
     }
 
     private static void DisplayAdjacentCountries(Country country)

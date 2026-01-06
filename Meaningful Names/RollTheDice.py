@@ -1,21 +1,21 @@
 import random
 
-def RollDice(numberOfSides):
-    return random.randint(1, numberOfSides)
+def roll_dice(number_of_sides):
+    return random.randint(1, number_of_sides)
 
 
-def RunDiceGame():
-    totalSides = 6
-    isGameRunning = True
+def run_dice_game():
+    total_sides = 6
+    is_game_running = True
 
-    while isGameRunning:
-        userInput = input("Ready to roll? Enter q to Quit: ")
+    while is_game_running:
+        user_input = input("Ready to roll? Enter q to Quit: ")
 
-        if userInput.lower() == "q":
-            isGameRunning = False
+        if user_input.lower() == "q":
+            is_game_running = False
         else:
-            rolledValue = RollDice(totalSides)
-            print(f"You rolled a {rolledValue}")
+            rolled_value = roll_dice(total_sides)
+            print(f"You rolled a {rolled_value}")
 
 
-RunDiceGame()
+run_dice_game()
