@@ -1,0 +1,17 @@
+For the question the Book class is not following Single Responsibility Principle as:
+
+1. The Book class is doing too many things.
+2. A book should only:
+    -> Store title and author
+    -> Allow reading pages
+
+3. The getLocation() method is wrong because A book should not know where it is kept.
+4. The save() method is wrong because A book should not save itself to a file, File handling should be done differently.
+
+5. Impact : 
+        -> If file storage rules change, the Book class must change.
+        -> If Book location rules change, the Book class must change.
+
+6. Which means the Book class has more than one reason to change. But Clean Code says one class should have only one responsibility.
+
+Therefore, this code does not follow SRP.
