@@ -1,29 +1,15 @@
-﻿using BankingSystem.Interfaces;
+﻿using BankingSystem.DependencyDtos;
 using BankingSystem.Models;
-using BankingSystem.Services;
 
 namespace BankingSystem.UI;
 
 public class DashboardUI
 {
-    private readonly IAccountService _accountService;
-    private readonly ITransactionService _transactionService;
-    private readonly LoanUI _loanUI;
-    private readonly InputValidationService _inputValidationService;
-    private readonly ConsoleService _consoleService;
+    private readonly DashboardUiDependenciesDto _deps;
 
-    public DashboardUI(
-        IAccountService accountService,
-        ITransactionService transactionService,
-        LoanUI loanUI,
-        InputValidationService inputValidationService,
-        ConsoleService consoleService)
+    public DashboardUI(DashboardUiDependenciesDto dependencies)
     {
-        _accountService = accountService;
-        _transactionService = transactionService;
-        _loanUI = loanUI;
-        _inputValidationService = inputValidationService;
-        _consoleService = consoleService;
+        _deps = dependencies;
     }
 
     public void Show(User user)
@@ -41,14 +27,14 @@ public class DashboardUI
                 if (choice == "6")
                     return;
 
-                HandleMenuChoice(choice, user);
+                HandleChoice(choice, user);
             }
             catch (Exception ex)
             {
-                _consoleService.ShowError(ex.Message);
+                _deps.Ui.Console.ShowError(ex.Message);
             }
 
-            _consoleService.Pause();
+            _deps.Ui.Console.Pause();
         }
     }
 
@@ -72,82 +58,68 @@ public class DashboardUI
 
     private string ReadMenuChoice()
     {
-        return _inputValidationService.RequireString(
-            Console.ReadLine(),
-            "Menu option");
+        return _deps.Ui.InputValidation.RequireString(
+            Console.ReadLine(), "Menu option");
     }
 
-    private void HandleMenuChoice(string choice, User user)
+    private void HandleChoice(string choice, User user)
     {
         switch (choice)
         {
-            case "1":
-                ShowBalance(user);
-                break;
-            case "2":
-                HandleDeposit(user);
-                break;
-            case "3":
-                HandleWithdraw(user);
-                break;
-            case "4":
-                HandleTransfer(user);
-                break;
-            case "5":
-                _loanUI.Show(user);
-                break;
+            case "1": ShowBalance(user); break;
+            case "2": Deposit(user); break;
+            case "3": Withdraw(user); break;
+            case "4": Transfer(user); break;
+            case "5": _deps.LoanUI.Show(user); break;
             default:
-                throw new Exception("Invalid menu option selected.");
+                throw new InvalidOperationException("Invalid menu option selected.");
         }
     }
-
 
     private void ShowBalance(User user)
     {
         Console.WriteLine($"Current Balance: {user.Balance} Rs");
     }
 
-    private void HandleDeposit(User user)
+    private void Deposit(User user)
     {
         Console.Write("Enter deposit amount: ");
-        var amount = _inputValidationService.RequireDecimal(
-            Console.ReadLine(),
-            "Deposit Amount");
+        var amount = _deps.Ui.InputValidation.RequireDecimal(
+            Console.ReadLine(), "Deposit Amount");
 
-        _accountService.Deposit(user, amount);
-
-        Console.WriteLine("Deposit successful.");
+        _deps.AccountService.Deposit(user, amount);
         Console.WriteLine($"Updated Balance: {user.Balance} Rs");
     }
 
-    private void HandleWithdraw(User user)
+    private void Withdraw(User user)
     {
         Console.Write("Enter withdrawal amount: ");
-        var amount = _inputValidationService.RequireDecimal(
-            Console.ReadLine(),
-            "Withdrawal Amount");
+        var amount = _deps.Ui.InputValidation.RequireDecimal(
+            Console.ReadLine(), "Withdrawal Amount");
 
-        _accountService.Withdraw(user, amount);
-
-        Console.WriteLine("Withdrawal successful.");
+        _deps.AccountService.Withdraw(user, amount);
         Console.WriteLine($"Remaining Balance: {user.Balance} Rs");
     }
 
-    private void HandleTransfer(User user)
+    private void Transfer(User user)
     {
         Console.Write("Enter target Account ID: ");
-        var targetAccountId = _inputValidationService.RequireString(
-            Console.ReadLine(),
-            "Target Account ID");
+        var targetAccountId = _deps.Ui.InputValidation.RequireString(
+            Console.ReadLine(), "Target Account ID");
 
         Console.Write("Enter transfer amount: ");
-        var amount = _inputValidationService.RequireDecimal(
-            Console.ReadLine(),
-            "Transfer Amount");
+        var amount = _deps.Ui.InputValidation.RequireDecimal(
+            Console.ReadLine(), "Transfer Amount");
 
-        _transactionService.Transfer(user, targetAccountId, amount);
+        var request = new TransferRequest
+        {
+            Sender = user,
+            TargetAccountId = targetAccountId,
+            Amount = amount
+        };
 
-        Console.WriteLine("Transfer completed successfully.");
+        _deps.TransactionService.Transfer(request);
+
         Console.WriteLine($"Remaining Balance: {user.Balance} Rs");
     }
 }

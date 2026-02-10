@@ -1,4 +1,5 @@
-﻿using BankingSystem.Interfaces;
+﻿using BankingSystem.Enums;
+using BankingSystem.Interfaces;
 using BankingSystem.Models;
 
 namespace BankingSystem.Services;

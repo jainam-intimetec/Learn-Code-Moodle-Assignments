@@ -1,4 +1,4 @@
-﻿namespace BankingSystem.Models;
+﻿namespace BankingSystem.Enums;
 
 public enum LoanStatus
 {

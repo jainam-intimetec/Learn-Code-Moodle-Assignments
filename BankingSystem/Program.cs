@@ -1,36 +1,47 @@
-﻿using BankingSystem.Services;
+﻿using BankingSystem.DependencyDtos;
+using BankingSystem.Services;
 using BankingSystem.UI;
 
 var storageService = new FileStorageService();
-var inputValidationService = new InputValidationService();
-var consoleService = new ConsoleService();
 var passwordHasher = new PasswordHasher();
+var interestRateProvider = new InterestRateProvider();
 
-var userService = new UserService(
-    storageService,
-    passwordHasher);
-
+var userService = new UserService(storageService, passwordHasher);
 var accountService = new AccountService(storageService);
 var transactionService = new TransactionService(storageService);
-var loanService = new LoanService(storageService, new InterestRateProvider());
+var loanService = new LoanService(storageService, interestRateProvider);
 
+var uiCommonServices = new UiCommonServicesDto
+{
+    InputValidation = new InputValidationService(),
+    Console = new ConsoleService()
+};
 
-var loanUI = new LoanUI(
-    loanService,
-    inputValidationService,
-    consoleService);
+var loanUiDependencies = new LoanUiDependenciesDto
+{
+    LoanService = loanService,
+    Ui = uiCommonServices
+};
 
-var dashboardUI = new DashboardUI(
-    accountService,
-    transactionService,
-    loanUI,
-    inputValidationService,
-    consoleService);
+var loanUI = new LoanUI(loanUiDependencies);
 
-var mainMenu = new MainMenuUI(
-    userService,
-    dashboardUI,
-    inputValidationService,
-    consoleService);
+var dashboardDependencies = new DashboardUiDependenciesDto
+{
+    AccountService = accountService,
+    TransactionService = transactionService,
+    LoanUI = loanUI,
+    Ui = uiCommonServices
+};
+
+var dashboardUI = new DashboardUI(dashboardDependencies);
+
+var mainMenuDependencies = new MainMenuUiDependenciesDto
+{
+    UserService = userService,
+    DashboardUI = dashboardUI,
+    Ui = uiCommonServices
+};
+
+var mainMenu = new MainMenuUI(mainMenuDependencies);
 
 mainMenu.Start();
