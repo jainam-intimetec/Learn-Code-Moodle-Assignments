@@ -19,12 +19,12 @@ public class UserService : IUserService
     public User Register(User user, string password)
     {
         ValidateInitialDeposit(user);
-        EnsureUsernameIsUnique(user.Username);
+        var users = _storage.LoadUsers();
+        EnsureUsernameIsUnique(users, user.Username);
 
         user.AccountId = GenerateAccountId();
         user.PasswordHash = _passwordHasher.Hash(password);
 
-        var users = _storage.LoadUsers();
         users.Add(user);
         _storage.SaveUsers(users);
 
@@ -40,7 +40,7 @@ public class UserService : IUserService
             u.Username == username && u.PasswordHash == hash);
 
         if (user == null)
-            throw new Exception("Invalid username or password.");
+            throw new InvalidOperationException("Invalid username or password.");
 
         return user;
     }
@@ -49,15 +49,13 @@ public class UserService : IUserService
     private void ValidateInitialDeposit(User user)
     {
         if (user.Balance < 500)
-            throw new Exception("Minimum deposit is 500 Rs.");
+            throw new InvalidOperationException("Minimum deposit is 500 Rs.");
     }
 
-    private void EnsureUsernameIsUnique(string username)
+    private static void EnsureUsernameIsUnique(IEnumerable<User> users, string username)
     {
-        var users = _storage.LoadUsers();
-
         if (users.Any(u => u.Username == username))
-            throw new Exception("Username already exists.");
+            throw new InvalidOperationException("Username already exists.");
     }
 
     private string GenerateAccountId()

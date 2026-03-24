@@ -17,12 +17,26 @@ public class TransactionService : ITransactionService
         Validate(request);
 
         var users = _storage.LoadUsers();
+        var sender = FindUser(users, request.Sender.AccountId, "Sender account not found.");
         var receiver = FindReceiver(users, request.TargetAccountId);
+        var originalSenderBalance = sender.Balance;
+        var originalReceiverBalance = receiver.Balance;
 
-        ExecuteTransfer(request.Sender, receiver, request.Amount);
-
-        _storage.SaveUsers(users);
+        try
+        {
+            ExecuteTransfer(sender, receiver, request.Amount);
+            _storage.SaveUsers(users);
+            request.Sender.Balance = sender.Balance;
+        }
+        catch
+        {
+            sender.Balance = originalSenderBalance;
+            receiver.Balance = originalReceiverBalance;
+            request.Sender.Balance = originalSenderBalance;
+            throw;
+        }
     }
+
     private static void Validate(TransferRequest request)
     {
         if (request.Amount <= 0)
@@ -30,15 +44,24 @@ public class TransactionService : ITransactionService
 
         if (request.Sender.Balance < request.Amount)
             throw new InvalidOperationException("Insufficient balance.");
+
+        if (request.Sender.AccountId == request.TargetAccountId)
+            throw new InvalidOperationException("Cannot transfer to the same account.");
     }
+
+    private static User FindUser(IEnumerable<User> users, string accountId, string errorMessage)
+    {
+        var user = users.FirstOrDefault(u => u.AccountId == accountId);
+
+        if (user == null)
+            throw new InvalidOperationException(errorMessage);
+
+        return user;
+    }
+
     private static User FindReceiver(IEnumerable<User> users, string targetAccountId)
     {
-        var receiver = users.FirstOrDefault(u => u.AccountId == targetAccountId);
-
-        if (receiver == null)
-            throw new InvalidOperationException("Target account not found.");
-
-        return receiver;
+        return FindUser(users, targetAccountId, "Target account not found.");
     }
 
     private static void ExecuteTransfer(User sender, User receiver, decimal amount)

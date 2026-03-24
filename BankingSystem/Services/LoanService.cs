@@ -19,6 +19,7 @@ public class LoanService : ILoanService
 
     public Loan CalculateLoan(decimal principal, int tenureMonths)
     {
+        ValidateLoanInputs(principal, tenureMonths);
         var interestRate = _interestRateProvider.GetInterestRate(principal, tenureMonths);
 
         var totalPayable = principal * (decimal)(1 + interestRate / 100);
@@ -39,11 +40,21 @@ public class LoanService : ILoanService
     public void ApplyLoan(User user, Loan loan)
     {
         EnsureNoActiveLoan(user);
+        var originalBalance = user.Balance;
+        var originalLoan = user.Loan;
 
-        user.Loan = loan;
-        user.Balance += loan.Principal;
-
-        Save(user);
+        try
+        {
+            user.Loan = loan;
+            user.Balance += loan.Principal;
+            Save(user);
+        }
+        catch
+        {
+            user.Balance = originalBalance;
+            user.Loan = originalLoan;
+            throw;
+        }
     }
 
     public void PayMonthlyEmi(User user)
@@ -62,11 +73,34 @@ public class LoanService : ILoanService
     {
         EnsureActiveLoan(user);
         EnsureSufficientBalance(user, paymentAmount);
+        var originalBalance = user.Balance;
+        var originalRemainingAmount = user.Loan!.RemainingAmount;
+        var originalEmiPaidCount = user.Loan.EmiPaidCount;
+        var originalStatus = user.Loan.Status;
 
-        DeductAmount(user, paymentAmount);
-        CloseLoanIfCompleted(user);
+        try
+        {
+            DeductAmount(user, paymentAmount);
+            CloseLoanIfCompleted(user);
+            Save(user);
+        }
+        catch
+        {
+            user.Balance = originalBalance;
+            user.Loan!.RemainingAmount = originalRemainingAmount;
+            user.Loan.EmiPaidCount = originalEmiPaidCount;
+            user.Loan.Status = originalStatus;
+            throw;
+        }
+    }
 
-        Save(user);
+    private static void ValidateLoanInputs(decimal principal, int tenureMonths)
+    {
+        if (principal <= 0)
+            throw new InvalidOperationException("Principal amount must be greater than zero.");
+
+        if (tenureMonths <= 0)
+            throw new InvalidOperationException("Tenure must be greater than zero.");
     }
 
     private static void EnsureNoActiveLoan(User user)
@@ -113,6 +147,9 @@ public class LoanService : ILoanService
     {
         var users = _storage.LoadUsers();
         var index = users.FindIndex(u => u.AccountId == user.AccountId);
+
+        if (index < 0)
+            throw new InvalidOperationException("Account could not be found.");
 
         users[index] = user;
         _storage.SaveUsers(users);

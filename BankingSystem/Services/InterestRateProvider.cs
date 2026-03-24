@@ -40,11 +40,14 @@ public class InterestRateProvider : IInterestRateProvider
 
     public double GetInterestRate(decimal principal, int tenure)
     {
-        var rule = _rules.First(r =>
+        var rule = _rules.FirstOrDefault(r =>
             principal >= r.MinPrincipal &&
             principal <= r.MaxPrincipal &&
             tenure >= r.MinTenure &&
             tenure <= r.MaxTenure);
+
+        if (rule == null)
+            throw new InvalidOperationException("No interest rate rule matches the requested loan.");
 
         return rule.InterestRate;
     }
