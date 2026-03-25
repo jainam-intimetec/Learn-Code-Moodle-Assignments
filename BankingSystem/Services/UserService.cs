@@ -1,4 +1,5 @@
-﻿using BankingSystem.Interfaces;
+using BankingSystem.Exceptions;
+using BankingSystem.Interfaces;
 using BankingSystem.Models;
 
 namespace BankingSystem.Services;
@@ -40,22 +41,21 @@ public class UserService : IUserService
             u.Username == username && u.PasswordHash == hash);
 
         if (user == null)
-            throw new InvalidOperationException("Invalid username or password.");
+            throw new BankingException("Invalid username or password.");
 
         return user;
     }
 
-
     private void ValidateInitialDeposit(User user)
     {
         if (user.Balance < 500)
-            throw new InvalidOperationException("Minimum deposit is 500 Rs.");
+            throw new BankingException("Minimum deposit is 500 Rs.");
     }
 
     private static void EnsureUsernameIsUnique(IEnumerable<User> users, string username)
     {
         if (users.Any(u => u.Username == username))
-            throw new InvalidOperationException("Username already exists.");
+            throw new BankingException("Username already exists.");
     }
 
     private string GenerateAccountId()

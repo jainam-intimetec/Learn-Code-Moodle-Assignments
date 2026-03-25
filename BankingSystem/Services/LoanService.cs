@@ -1,4 +1,5 @@
-﻿using BankingSystem.Enums;
+using BankingSystem.Enums;
+using BankingSystem.Exceptions;
 using BankingSystem.Interfaces;
 using BankingSystem.Models;
 
@@ -97,34 +98,34 @@ public class LoanService : ILoanService
     private static void ValidateLoanInputs(decimal principal, int tenureMonths)
     {
         if (principal <= 0)
-            throw new InvalidOperationException("Principal amount must be greater than zero.");
+            throw new BankingException("Principal amount must be greater than zero.");
 
         if (tenureMonths <= 0)
-            throw new InvalidOperationException("Tenure must be greater than zero.");
+            throw new BankingException("Tenure must be greater than zero.");
     }
 
     private static void EnsureNoActiveLoan(User user)
     {
         if (user.Loan is { Status: LoanStatus.Active })
-            throw new InvalidOperationException("Only one active loan allowed.");
+            throw new BankingException("Only one active loan allowed.");
     }
 
     private static void EnsureLoanExists(User user)
     {
         if (user.Loan == null)
-            throw new InvalidOperationException("No loan found.");
+            throw new BankingException("No loan found.");
     }
 
     private static void EnsureActiveLoan(User user)
     {
         if (user.Loan == null || user.Loan.Status == LoanStatus.Closed)
-            throw new InvalidOperationException("No active loan found.");
+            throw new BankingException("No active loan found.");
     }
 
     private static void EnsureSufficientBalance(User user, decimal amount)
     {
         if (user.Balance < amount)
-            throw new InvalidOperationException("Insufficient balance.");
+            throw new BankingException("Insufficient balance.");
     }
 
     private static void DeductAmount(User user, decimal amount)
@@ -149,7 +150,7 @@ public class LoanService : ILoanService
         var index = users.FindIndex(u => u.AccountId == user.AccountId);
 
         if (index < 0)
-            throw new InvalidOperationException("Account could not be found.");
+            throw new BankingException("Account could not be found.");
 
         users[index] = user;
         _storage.SaveUsers(users);

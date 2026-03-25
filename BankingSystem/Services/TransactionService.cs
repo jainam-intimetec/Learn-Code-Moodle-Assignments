@@ -1,4 +1,5 @@
-﻿using BankingSystem.Interfaces;
+using BankingSystem.Exceptions;
+using BankingSystem.Interfaces;
 using BankingSystem.Models;
 
 namespace BankingSystem.Services;
@@ -40,13 +41,13 @@ public class TransactionService : ITransactionService
     private static void Validate(TransferRequest request)
     {
         if (request.Amount <= 0)
-            throw new InvalidOperationException("Transfer amount must be greater than zero.");
+            throw new BankingException("Transfer amount must be greater than zero.");
 
         if (request.Sender.Balance < request.Amount)
-            throw new InvalidOperationException("Insufficient balance.");
+            throw new BankingException("Insufficient balance.");
 
         if (request.Sender.AccountId == request.TargetAccountId)
-            throw new InvalidOperationException("Cannot transfer to the same account.");
+            throw new BankingException("Cannot transfer to the same account.");
     }
 
     private static User FindUser(IEnumerable<User> users, string accountId, string errorMessage)
@@ -54,7 +55,7 @@ public class TransactionService : ITransactionService
         var user = users.FirstOrDefault(u => u.AccountId == accountId);
 
         if (user == null)
-            throw new InvalidOperationException(errorMessage);
+            throw new BankingException(errorMessage);
 
         return user;
     }

@@ -1,4 +1,5 @@
-﻿using BankingSystem.DependencyDtos;
+using BankingSystem.DependencyDtos;
+using BankingSystem.Exceptions;
 using BankingSystem.Interfaces;
 using BankingSystem.Models;
 
@@ -29,9 +30,13 @@ public class LoanUI
 
                 HandleChoice(choice, user);
             }
-            catch (Exception ex)
+            catch (BankingException ex)
             {
                 _ui.Console.ShowError(ex.Message);
+            }
+            catch (Exception)
+            {
+                _ui.Console.ShowError("Unexpected error while processing loan operations.");
             }
 
             _ui.Console.Pause();
@@ -66,7 +71,7 @@ public class LoanUI
             case "4": CalculateEmi(); break;
             case "5": SettleLoan(user); break;
             default:
-                throw new InvalidOperationException("Invalid menu option selected.");
+                throw new BankingException("Invalid menu option selected.");
         }
     }
 
@@ -147,6 +152,6 @@ public class LoanUI
     private static void EnsureLoanExists(User user)
     {
         if (user.Loan == null)
-            throw new InvalidOperationException("No active loan found.");
+            throw new BankingException("No active loan found.");
     }
 }

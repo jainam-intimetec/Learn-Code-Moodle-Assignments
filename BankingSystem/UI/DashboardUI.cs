@@ -1,4 +1,5 @@
-﻿using BankingSystem.DependencyDtos;
+using BankingSystem.DependencyDtos;
+using BankingSystem.Exceptions;
 using BankingSystem.Models;
 
 namespace BankingSystem.UI;
@@ -29,9 +30,13 @@ public class DashboardUI
 
                 HandleChoice(choice, user);
             }
-            catch (Exception ex)
+            catch (BankingException ex)
             {
                 _deps.Ui.Console.ShowError(ex.Message);
+            }
+            catch (Exception)
+            {
+                _deps.Ui.Console.ShowError("Unexpected error while processing your request.");
             }
 
             _deps.Ui.Console.Pause();
@@ -72,7 +77,7 @@ public class DashboardUI
             case "4": Transfer(user); break;
             case "5": _deps.LoanUI.Show(user); break;
             default:
-                throw new InvalidOperationException("Invalid menu option selected.");
+                throw new BankingException("Invalid menu option selected.");
         }
     }
 

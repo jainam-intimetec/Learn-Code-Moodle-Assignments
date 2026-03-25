@@ -1,4 +1,5 @@
-﻿using BankingSystem.Interfaces;
+using BankingSystem.Exceptions;
+using BankingSystem.Interfaces;
 using BankingSystem.Models;
 
 namespace BankingSystem.Services;
@@ -46,20 +47,19 @@ public class AccountService : IAccountService
         }
     }
 
-
     private void ValidateDepositAmount(decimal amount)
     {
         if (amount <= 0)
-            throw new InvalidOperationException("Invalid deposit amount.");
+            throw new BankingException("Invalid deposit amount.");
     }
 
     private void ValidateWithdrawal(User user, decimal amount)
     {
         if (amount <= 0)
-            throw new InvalidOperationException("Invalid withdrawal amount.");
+            throw new BankingException("Invalid withdrawal amount.");
 
         if (amount > user.Balance)
-            throw new InvalidOperationException("Insufficient balance.");
+            throw new BankingException("Insufficient balance.");
     }
 
     private void IncreaseBalance(User user, decimal amount)
@@ -78,7 +78,7 @@ public class AccountService : IAccountService
         var index = users.FindIndex(u => u.AccountId == user.AccountId);
 
         if (index < 0)
-            throw new InvalidOperationException("Account could not be found.");
+            throw new BankingException("Account could not be found.");
 
         users[index] = user;
         _storage.SaveUsers(users);

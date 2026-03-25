@@ -1,4 +1,5 @@
-﻿using BankingSystem.DependencyDtos;
+using BankingSystem.DependencyDtos;
+using BankingSystem.Exceptions;
 using BankingSystem.Models;
 
 namespace BankingSystem.UI;
@@ -26,9 +27,13 @@ public class MainMenuUI
 
                 HandleChoice(choice);
             }
-            catch (Exception ex)
+            catch (BankingException ex)
             {
                 _deps.Ui.Console.ShowError(ex.Message);
+            }
+            catch (Exception)
+            {
+                _deps.Ui.Console.ShowError("Unexpected error while processing the main menu.");
             }
 
             _deps.Ui.Console.Pause();
@@ -60,7 +65,7 @@ public class MainMenuUI
             case "1": Register(); break;
             case "2": Login(); break;
             default:
-                throw new InvalidOperationException("Invalid menu option selected.");
+                throw new BankingException("Invalid menu option selected.");
         }
     }
 
