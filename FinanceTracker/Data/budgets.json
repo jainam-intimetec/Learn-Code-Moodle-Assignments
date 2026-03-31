@@ -1,0 +1,11 @@
+[
+  {
+    "Id": "97939067-d094-4c9f-ad16-b1d6087b9e58",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Category": "Food",
+    "LimitAmount": 1000,
+    "Year": 2026,
+    "Month": 3,
+    "CreatedAtUtc": "2026-03-31T07:34:33.6431479Z"
+  }
+]

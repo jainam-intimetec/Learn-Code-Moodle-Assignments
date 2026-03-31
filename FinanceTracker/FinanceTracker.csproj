@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="FinanceTracker.Api\**\*.cs" />
+    <Compile Remove="FinanceTracker.ConsoleApp\**\*.cs" />
+    <EmbeddedResource Remove="FinanceTracker.Api\**\*" />
+    <EmbeddedResource Remove="FinanceTracker.ConsoleApp\**\*" />
+    <None Remove="FinanceTracker.Api\**\*" />
+    <None Remove="FinanceTracker.ConsoleApp\**\*" />
+  </ItemGroup>
+
+</Project>

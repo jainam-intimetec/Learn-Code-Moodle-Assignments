@@ -1,0 +1,110 @@
+[
+  {
+    "Id": "858ace1c-5651-4378-9b93-74a0054825ce",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 0,
+    "Amount": 1234567,
+    "Category": "Food",
+    "Note": "hello",
+    "DateUtc": "2026-03-30T00:00:00Z"
+  },
+  {
+    "Id": "7f10bc00-1a40-4477-bebd-2f80f47f3ec4",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 10000,
+    "Category": "Food",
+    "Note": "On Date",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "4b6e96c9-f0ea-4221-b7e9-6249b725436e",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 10000,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "7583b717-bbc7-4aac-894d-35cec87589b2",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 10000,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "193b9a37-bc15-4d86-b0ea-33e5471adb41",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 0,
+    "Amount": 100000,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "c9be0a3b-750f-4b3e-b3cd-5d4234a53d17",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 12,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "7cc463f8-07b7-4602-a4b7-fec04d261884",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 12,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "dbe25c8e-6c20-4b31-b949-6e8ae1012196",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 1,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "f0b5c90a-500e-4d5c-b7dd-6df4b12d2803",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 0,
+    "Amount": 12,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "e434086e-2539-438f-aa9b-c10f92a2cd9a",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 0,
+    "Amount": 12000,
+    "Category": "Food",
+    "Note": "qwef",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "340bae11-a881-4fdc-9171-118a46828723",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 100,
+    "Category": "Food",
+    "Note": "qsdf",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  },
+  {
+    "Id": "4a306a13-728d-49e4-afc8-7606e971778b",
+    "UserId": "e8aa4eed-e7eb-401e-b958-e4f0d6744185",
+    "Type": 1,
+    "Amount": 1,
+    "Category": "Food",
+    "Note": "-",
+    "DateUtc": "2026-03-31T00:00:00Z"
+  }
+]
